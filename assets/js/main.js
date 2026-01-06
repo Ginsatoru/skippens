@@ -1,6 +1,8 @@
 // Mobile Menu Toggle
 function toggleMobileMenu() {
     const menu = document.querySelector('.mobile-menu');
+    if (!menu) return;
+    
     menu.classList.toggle('active');
     
     // Prevent body scroll when menu is open
@@ -13,19 +15,21 @@ function toggleMobileMenu() {
 
 // Navbar Scroll Effect
 let lastScroll = 0;
-const navbar = document.querySelector('.nav-blur');
+const navbar = document.querySelector('.nav-blur') || document.querySelector('nav');
 
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-    
-    lastScroll = currentScroll;
-});
+if (navbar) {
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+        
+        lastScroll = currentScroll;
+    });
+}
 
 // Load Section Content
 async function loadSection(sectionId, filePath) {
@@ -44,12 +48,20 @@ async function loadSection(sectionId, filePath) {
 
 // Initialize Page
 document.addEventListener('DOMContentLoaded', () => {
-    // Load all sections
-    loadSection('header-section', './sections/header.html');
-    loadSection('hero-section', './sections/hero-banner.html');
-    loadSection('products-section', './sections/products.html');
-    loadSection('features-section', './sections/features-contact.html');
-    loadSection('footer-section', './sections/footer.html');
+    // Load all sections (only if elements exist)
+    const sections = [
+        { id: 'header-section', path: './sections/header.html' },
+        { id: 'hero-section', path: './sections/hero-banner.html' },
+        { id: 'products-section', path: './sections/products.html' },
+        { id: 'features-section', path: './sections/features-contact.html' },
+        { id: 'footer-section', path: './sections/footer.html' }
+    ];
+    
+    sections.forEach(section => {
+        if (document.getElementById(section.id)) {
+            loadSection(section.id, section.path);
+        }
+    });
     
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -123,9 +135,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // Close mobile menu when clicking outside
 document.addEventListener('click', (e) => {
     const mobileMenu = document.querySelector('.mobile-menu');
-    const menuButton = document.querySelector('.lg\\:hidden');
+    const menuButton = document.querySelector('.lg\\:hidden') || document.querySelector('#mobile-menu-btn');
     
-    if (mobileMenu && mobileMenu.classList.contains('active')) {
+    if (mobileMenu && menuButton && mobileMenu.classList.contains('active')) {
         if (!mobileMenu.contains(e.target) && !menuButton.contains(e.target)) {
             toggleMobileMenu();
         }
