@@ -10,14 +10,6 @@
     transition: transform 0.3s ease;
 }
 
-/* Hero Background */
-.hero-bg {
-    background: linear-gradient(135deg, rgba(44, 95, 45, 0.92) 0%, rgba(44, 95, 45, 0.75) 100%),
-                url('https://amico.com.au/wp-content/uploads/2019/01/contemporary-garden-landscaping-idea.jpg') center/cover;
-    background-attachment: fixed;
-    padding-top: 120px; /* Account for top bar + nav height */
-}
-
 /* Add padding to body to account for fixed headers */
 body {
     padding-top: 120px;

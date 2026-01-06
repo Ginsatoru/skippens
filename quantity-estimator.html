@@ -1,0 +1,2057 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quantity Estimator - Skippens</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif;
+      }
+
+      /* Calculator Grid Layout */
+      #calculator-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      @media (max-width: 1024px) {
+        #calculator-container {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Ensure calculators take full width of their grid cell */
+      #calculator-container > * {
+        width: 100%;
+      }
+
+      /* Center diagrams - target the container that holds the shape images */
+      #calculator-container
+        img:not([class*="icon"]):not([width="20"]):not([width="16"]),
+      #calculator-container
+        svg:not([class*="icon"]):not([width="20"]):not([width="16"]),
+      #calculator-container canvas {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: block !important;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Top Bar -->
+    <div class="bg-green-800 text-white py-2">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center text-sm"
+      >
+        <div class="flex items-center space-x-6">
+          <a
+            href="tel:0296661020"
+            class="flex items-center space-x-2 hover:text-gray-200"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              />
+            </svg>
+            <span>02 9666 1020</span>
+          </a>
+          <a
+            href="mailto:info@skippens.com.au"
+            class="flex items-center space-x-2 hover:text-gray-200"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
+            </svg>
+            <span>info@skippens.com.au</span>
+          </a>
+        </div>
+        <div class="flex items-center space-x-2">
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span>Same day delivery available!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <div class="flex items-center">
+            <a href="index.html">
+              <img
+                src="logo.png"
+                alt="Skippens Logo"
+                class="h-12 w-auto"
+              />
+            </a>
+          </div>
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="index.html"
+              class="text-gray-700 hover:text-green-700 font-medium transition-colors"
+              >Home</a
+            >
+            <a
+              href="#"
+              class="text-gray-700 hover:text-green-700 font-medium transition-colors"
+              >Shop</a
+            >
+            <a
+              href="#"
+              class="text-gray-700 hover:text-green-700 font-medium transition-colors"
+              >About</a
+            >
+            <a
+              href="#"
+              class="text-gray-700 hover:text-green-700 font-medium transition-colors"
+              >Blog</a
+            >
+            <a
+              href="quantity-estimator.html"
+              class="text-green-700 font-semibold border-b-2 border-green-700"
+              >Quantity Estimator</a
+            >
+            <a
+              href="#"
+              class="text-gray-700 hover:text-green-700 font-medium transition-colors"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h1 class="text-4xl font-bold text-gray-900 text-center mb-12">
+        Quantity Estimator
+      </h1>
+
+      <!-- Calculator Content Container - Paste your calculator code here -->
+      <div id="calculator-container">
+        <!-- YOUR VOLUME AND AREA CALCULATOR CODE GOES HERE -->
+
+        <!DOCTYPE html>
+        <html lang="en">
+          <head>
+            <meta charset="UTF-8" />
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1.0"
+            />
+            <title>Volume Calculator</title>
+            <style>
+              .volume-calculator {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                  Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+                background: white;
+                border: 1px solid #e2e8f0;
+                border-radius: 12px;
+                overflow: hidden;
+                margin-bottom: 20px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+              }
+
+              .volume-header {
+                background: #0f8abe;
+                color: white;
+                padding: 20px;
+                text-align: center;
+              }
+
+              .volume-subtitle {
+                font-size: 11px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-bottom: 6px;
+                opacity: 0.9;
+              }
+
+              .volume-title {
+                font-size: 24px;
+                font-weight: 700;
+                margin: 0;
+                color: white;
+              }
+
+              .volume-tab-buttons {
+                display: flex;
+                background: #f8fafc;
+                border-bottom: 1px solid #e2e8f0;
+              }
+
+              .volume-tab-button {
+                border-radius: 0 !important;
+                flex: 1;
+                padding: 14px 10px;
+                border: none;
+                background: transparent;
+                color: #64748b;
+                font-weight: 600;
+                font-size: 12px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                position: relative;
+                margin: 0;
+
+                /* FIX ALIGNMENT */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+              }
+
+              .tab-icon {
+                width: 18px;
+                height: 18px;
+                display: block;
+                flex-shrink: 0;
+              }
+
+              .tab-icon .shape {
+                stroke: currentColor;
+                stroke-width: 2;
+                fill: none;
+              }
+
+              .tab-icon .highlight {
+                fill: #0f8abe;
+                opacity: 0;
+              }
+
+              .tab-label {
+                line-height: 1;
+                display: block;
+              }
+
+              .volume-tab-button:hover {
+                color: #0f8abe;
+                background: #f1f5f9;
+              }
+
+              .volume-tab-button.active {
+                color: #0f8abe;
+                background: white;
+                font-weight: 700;
+              }
+
+              .volume-tab-button.active::after {
+                content: "";
+                position: absolute;
+                bottom: -1px;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: #0f8abe;
+              }
+
+              .volume-tab-content {
+                display: none;
+                padding: 20px;
+              }
+
+              .volume-tab-content.active {
+                display: block;
+              }
+
+              .volume-shape-diagram {
+                text-align: center;
+                margin-bottom: 20px;
+                padding: 16px;
+                background: #f8fafc;
+                border-radius: 8px;
+                border: 1px solid #e2e8f0;
+              }
+
+              .volume-shape-diagram img {
+                max-width: 100%;
+                height: 160px;
+                object-fit: contain;
+              }
+
+              .volume-input-group {
+                margin-bottom: 20px;
+              }
+
+              .volume-input-group label {
+                display: block;
+                font-weight: 600;
+                color: #334155;
+                font-size: 14px;
+                margin-bottom: 8px;
+              }
+
+              .volume-input-wrapper {
+                display: flex;
+                align-items: center;
+                background: white;
+                border: 1px solid #cbd5e1;
+                border-radius: 8px;
+                padding: 0 14px;
+                transition: border-color 0.2s ease;
+              }
+
+              .volume-input-wrapper:focus-within {
+                border-color: #0f8abe;
+              }
+
+              .volume-input-wrapper input {
+                flex: 1;
+                padding: 14px 0;
+                border: none;
+                background: transparent;
+                font-size: 15px;
+                color: #0f172a;
+                outline: none;
+                width: 100%;
+              }
+
+              .volume-input-wrapper input::placeholder {
+                color: #94a3b8;
+              }
+
+              .volume-input-wrapper span {
+                color: #64748b;
+                font-weight: 500;
+                font-size: 14px;
+                min-width: 30px;
+                text-align: right;
+                margin-left: 8px;
+              }
+
+              .volume-button-group {
+                display: flex;
+                gap: 12px;
+                margin: 24px 0;
+              }
+
+              .volume-btn {
+                padding: 16px 28px;
+                border: none;
+                border-radius: 8px;
+                font-weight: 700;
+                font-size: 13px;
+                cursor: pointer;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                transition: all 0.2s ease;
+              }
+
+              .volume-btn-reset {
+                background: #f1f5f9;
+                color: #475569;
+                flex: 1;
+              }
+
+              .volume-btn-reset:hover {
+                background: #0f8abe;
+              }
+
+              .volume-btn-calculate {
+                background: #0f8abe;
+                color: white;
+                flex: 2;
+              }
+
+              .volume-btn-calculate:hover {
+                background: #0d7299;
+              }
+
+              .volume-results-section {
+                background: #f8fafc;
+                border-top: 1px solid #e2e8f0;
+                padding: 20px;
+              }
+
+              .volume-results-title {
+                color: #334155;
+                font-size: 16px;
+                font-weight: 700;
+                margin-bottom: 16px;
+                padding-bottom: 12px;
+                border-bottom: 2px solid #e2e8f0;
+              }
+
+              .volume-results-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+                gap: 12px;
+                max-height: 320px;
+                overflow-y: auto;
+                padding-right: 8px;
+              }
+
+              .volume-result-item {
+                background: white;
+                padding: 14px 16px;
+                border-radius: 8px;
+                border: 1px solid #e2e8f0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+              }
+
+              .volume-result-label {
+                font-weight: 600;
+                color: #334155;
+                font-size: 13px;
+                flex: 1;
+                line-height: 1.4;
+              }
+
+              .volume-result-value {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+              }
+
+              .volume-result-number {
+                background: #f1f5f9;
+                padding: 6px 14px;
+                border-radius: 6px;
+                font-weight: 700;
+                min-width: 80px;
+                text-align: center;
+                font-size: 14px;
+                color: #0f8abe;
+              }
+
+              .volume-result-unit {
+                color: #64748b;
+                font-weight: 600;
+                font-size: 12px;
+                min-width: 60px;
+              }
+
+              .volume-results-grid::-webkit-scrollbar {
+                width: 6px;
+              }
+
+              .volume-results-grid::-webkit-scrollbar-track {
+                background: #f1f5f9;
+                border-radius: 3px;
+              }
+
+              .volume-results-grid::-webkit-scrollbar-thumb {
+                background: #cbd5e1;
+                border-radius: 3px;
+              }
+
+              .volume-results-grid::-webkit-scrollbar-thumb:hover {
+                background: #94a3b8;
+              }
+
+              /* Fix for double border issue */
+              .volume-input-wrapper input:focus {
+                outline: none;
+                box-shadow: none;
+              }
+
+              .volume-input-wrapper:focus-within {
+                outline: none;
+                border-color: #0f8abe;
+              }
+
+              /* Remove WordPress default focus */
+              .volume-input-wrapper input:focus-visible {
+                outline: none !important;
+                box-shadow: none !important;
+              }
+
+              @media (max-width: 768px) {
+                .volume-results-grid {
+                  grid-template-columns: 1fr;
+                }
+
+                .volume-button-group {
+                  flex-direction: column;
+                }
+
+                .volume-btn {
+                  width: 100%;
+                  padding: 14px 20px;
+                }
+
+                .volume-shape-diagram img {
+                  height: 140px;
+                }
+
+                .volume-tab-button {
+                  padding: 14px 8px;
+                  font-size: 11px;
+                }
+              }
+            </style>
+          </head>
+          <body>
+            <div class="volume-calculator">
+              <div class="volume-header">
+                <div class="volume-subtitle">PROFESSIONAL TOOL</div>
+                <h2 class="volume-title">Volume Calculator</h2>
+              </div>
+
+              <div class="volume-tab-buttons">
+                <button
+                  class="volume-tab-button active"
+                  onclick="showVolumeTab('rect')"
+                >
+                  <svg class="tab-icon" viewBox="0 0 24 24">
+                    <rect
+                      class="shape"
+                      x="4"
+                      y="4"
+                      width="16"
+                      height="16"
+                      rx="2"
+                    />
+                    <rect
+                      class="highlight"
+                      x="6"
+                      y="6"
+                      width="12"
+                      height="12"
+                      rx="1"
+                    />
+                  </svg>
+                  <span class="tab-label">Rectangle</span>
+                </button>
+                <button
+                  class="volume-tab-button"
+                  onclick="showVolumeTab('circle')"
+                >
+                  <svg class="tab-icon" viewBox="0 0 24 24">
+                    <circle class="shape" cx="12" cy="12" r="9" />
+                    <circle class="highlight" cx="12" cy="12" r="7" />
+                  </svg>
+                  <span class="tab-label">Circle</span>
+                </button>
+                <button
+                  class="volume-tab-button"
+                  onclick="showVolumeTab('triangle')"
+                >
+                  <svg class="tab-icon" viewBox="0 0 24 24">
+                    <polygon class="shape" points="12,4 20,20 4,20" />
+                    <polygon class="highlight" points="12,8 17,18 7,18" />
+                  </svg>
+                  <span class="tab-label">Triangle</span>
+                </button>
+              </div>
+
+              <!-- Rectangle Tab -->
+              <div id="volume-rect" class="volume-tab-content active">
+                <div class="volume-shape-diagram">
+                  <img
+                    src="https://www.skippens.com.au/wp-content/uploads/2025/12/rectangle.png"
+                    alt="Rectangle Volume Diagram"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div class="volume-input-group">
+                  <label>Length</label>
+                  <div class="volume-input-wrapper">
+                    <input
+                      type="number"
+                      id="rect-length"
+                      placeholder="Enter length"
+                      step="0.01"
+                      min="0"
+                    />
+                    <span>m</span>
+                  </div>
+                </div>
+
+                <div class="volume-input-group">
+                  <label>Width</label>
+                  <div class="volume-input-wrapper">
+                    <input
+                      type="number"
+                      id="rect-width"
+                      placeholder="Enter width"
+                      step="0.01"
+                      min="0"
+                    />
+                    <span>m</span>
+                  </div>
+                </div>
+
+                <div class="volume-input-group">
+                  <label>Thickness</label>
+                  <div class="volume-input-wrapper">
+                    <input
+                      type="number"
+                      id="rect-thickness"
+                      placeholder="Enter thickness"
+                      step="0.01"
+                      min="0"
+                    />
+                    <span>cm</span>
+                  </div>
+                </div>
+
+                <div class="volume-button-group">
+                  <button
+                    class="volume-btn volume-btn-calculate"
+                    onclick="calculateVolume('rect')"
+                  >
+                    Calculate
+                  </button>
+                  <button
+                    class="volume-btn volume-btn-reset"
+                    onclick="resetVolume('rect')"
+                  >
+                    Reset
+                  </button>
+                </div>
+              </div>
+
+              <!-- Circle Tab -->
+              <div id="volume-circle" class="volume-tab-content">
+                <div class="volume-shape-diagram">
+                  <img
+                    src="https://www.skippens.com.au/wp-content/uploads/2026/01/circle6.png"
+                    alt="Circle Volume Diagram"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div class="volume-input-group">
+                  <label>Diameter</label>
+                  <div class="volume-input-wrapper">
+                    <input
+                      type="number"
+                      id="circle-diameter"
+                      placeholder="Enter diameter"
+                      step="0.01"
+                      min="0"
+                    />
+                    <span>m</span>
+                  </div>
+                </div>
+
+                <div class="volume-input-group">
+                  <label>Thickness</label>
+                  <div class="volume-input-wrapper">
+                    <input
+                      type="number"
+                      id="circle-thickness"
+                      placeholder="Enter thickness"
+                      step="0.01"
+                      min="0"
+                    />
+                    <span>cm</span>
+                  </div>
+                </div>
+
+                <div class="volume-button-group">
+                  <button
+                    class="volume-btn volume-btn-calculate"
+                    onclick="calculateVolume('circle')"
+                  >
+                    Calculate
+                  </button>
+                  <button
+                    class="volume-btn volume-btn-reset"
+                    onclick="resetVolume('circle')"
+                  >
+                    Reset
+                  </button>
+                </div>
+              </div>
+
+              <!-- Triangle Tab -->
+              <div id="volume-triangle" class="volume-tab-content">
+                <div class="volume-shape-diagram">
+                  <img
+                    src="https://www.skippens.com.au/wp-content/uploads/2025/12/triangle1.png"
+                    alt="Triangle Volume Diagram"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div class="volume-input-group">
+                  <label>Base</label>
+                  <div class="volume-input-wrapper">
+                    <input
+                      type="number"
+                      id="tri-base"
+                      placeholder="Enter base"
+                      step="0.01"
+                      min="0"
+                    />
+                    <span>m</span>
+                  </div>
+                </div>
+
+                <div class="volume-input-group">
+                  <label>Height</label>
+                  <div class="volume-input-wrapper">
+                    <input
+                      type="number"
+                      id="tri-height"
+                      placeholder="Enter height"
+                      step="0.01"
+                      min="0"
+                    />
+                    <span>m</span>
+                  </div>
+                </div>
+
+                <div class="volume-input-group">
+                  <label>Thickness</label>
+                  <div class="volume-input-wrapper">
+                    <input
+                      type="number"
+                      id="tri-thickness"
+                      placeholder="Enter thickness"
+                      step="0.01"
+                      min="0"
+                    />
+                    <span>cm</span>
+                  </div>
+                </div>
+
+                <div class="volume-button-group">
+                  <button
+                    class="volume-btn volume-btn-calculate"
+                    onclick="calculateVolume('triangle')"
+                  >
+                    Calculate
+                  </button>
+                  <button
+                    class="volume-btn volume-btn-reset"
+                    onclick="resetVolume('triangle')"
+                  >
+                    Reset
+                  </button>
+                </div>
+              </div>
+
+              <!-- Results Section -->
+              <div class="volume-results-section">
+                <h3 class="volume-results-title">Results</h3>
+                <div id="volume-results" class="volume-results-grid"></div>
+              </div>
+            </div>
+
+            <script>
+              const materials = [
+                { name: "Cubic Metres", multiplier: 1 },
+                { name: "Garden Mulch", unit: "m³", multiplier: 1 },
+                { name: "Garden Mixes and Manures", unit: "m³", multiplier: 1 },
+                {
+                  name: "Soils (Top Soil, Top Dressing, Underlay)",
+                  unit: "Tonnes",
+                  multiplier: 1.4,
+                },
+                { name: "Sand", unit: "Tonnes", multiplier: 1.6 },
+                {
+                  name: "Decorative Gravels (excl Red Scoria)",
+                  unit: "Tonnes",
+                  multiplier: 1.7,
+                },
+                { name: "Red Scoria", unit: "Tonnes", multiplier: 1.0 },
+                {
+                  name: "Road Base, Recycled Asphalt",
+                  unit: "Tonnes",
+                  multiplier: 1.75,
+                },
+                {
+                  name: "Recycled Road Base, Metal Dust",
+                  unit: "Tonnes",
+                  multiplier: 1.6,
+                },
+                {
+                  name: "Blue Metal, Recycled Aggs",
+                  unit: "Tonnes",
+                  multiplier: 1.5,
+                },
+                {
+                  name: "Concrete (Sand & Metal)",
+                  unit: "Tonnes",
+                  multiplier: 2.1,
+                },
+                { name: "Cement", unit: "Bags", multiplier: 28.8 },
+                { name: "Bags Concrete", unit: "Bags", multiplier: 4 },
+              ];
+
+              function showVolumeTab(tabName) {
+                document
+                  .querySelectorAll(".volume-tab-content")
+                  .forEach((tab) => {
+                    tab.classList.remove("active");
+                  });
+                document
+                  .querySelectorAll(".volume-tab-button")
+                  .forEach((btn) => {
+                    btn.classList.remove("active");
+                  });
+                document
+                  .getElementById(`volume-${tabName}`)
+                  .classList.add("active");
+                event.target
+                  .closest(".volume-tab-button")
+                  .classList.add("active");
+              }
+
+              function calculateVolume(shape) {
+                let volume = 0;
+
+                switch (shape) {
+                  case "rect":
+                    const length = parseFloat(
+                      document.getElementById("rect-length").value
+                    );
+                    const width = parseFloat(
+                      document.getElementById("rect-width").value
+                    );
+                    const thickness =
+                      parseFloat(
+                        document.getElementById("rect-thickness").value
+                      ) / 100;
+
+                    if (
+                      isNaN(length) ||
+                      isNaN(width) ||
+                      isNaN(thickness) ||
+                      length <= 0 ||
+                      width <= 0 ||
+                      thickness <= 0
+                    ) {
+                      alert(
+                        "Please enter valid positive values for all fields"
+                      );
+                      return;
+                    }
+
+                    volume = length * width * thickness;
+                    break;
+
+                  case "circle":
+                    const diameter = parseFloat(
+                      document.getElementById("circle-diameter").value
+                    );
+                    const circleThickness =
+                      parseFloat(
+                        document.getElementById("circle-thickness").value
+                      ) / 100;
+
+                    if (
+                      isNaN(diameter) ||
+                      isNaN(circleThickness) ||
+                      diameter <= 0 ||
+                      circleThickness <= 0
+                    ) {
+                      alert(
+                        "Please enter valid positive values for all fields"
+                      );
+                      return;
+                    }
+
+                    const radius = diameter / 2;
+                    volume = Math.PI * radius * radius * circleThickness;
+                    break;
+
+                  case "triangle":
+                    const base = parseFloat(
+                      document.getElementById("tri-base").value
+                    );
+                    const height = parseFloat(
+                      document.getElementById("tri-height").value
+                    );
+                    const triThickness =
+                      parseFloat(
+                        document.getElementById("tri-thickness").value
+                      ) / 100;
+
+                    if (
+                      isNaN(base) ||
+                      isNaN(height) ||
+                      isNaN(triThickness) ||
+                      base <= 0 ||
+                      height <= 0 ||
+                      triThickness <= 0
+                    ) {
+                      alert(
+                        "Please enter valid positive values for all fields"
+                      );
+                      return;
+                    }
+
+                    volume = ((base * height) / 2) * triThickness;
+                    break;
+                }
+
+                displayVolumeResults(volume);
+              }
+
+              function displayVolumeResults(volume) {
+                const container = document.getElementById("volume-results");
+                container.innerHTML = "";
+
+                materials.forEach((material) => {
+                  const value = (volume * material.multiplier).toFixed(2);
+                  const unit = material.unit || "m³";
+
+                  container.innerHTML += `
+                    <div class="volume-result-item">
+                        <div class="volume-result-label">${material.name}</div>
+                        <div class="volume-result-value">
+                            <div class="volume-result-number">${value}</div>
+                            <div class="volume-result-unit">${unit}</div>
+                        </div>
+                    </div>
+                `;
+                });
+              }
+
+              function resetVolume(shape) {
+                switch (shape) {
+                  case "rect":
+                    document.getElementById("rect-length").value = "";
+                    document.getElementById("rect-width").value = "";
+                    document.getElementById("rect-thickness").value = "";
+                    break;
+                  case "circle":
+                    document.getElementById("circle-diameter").value = "";
+                    document.getElementById("circle-thickness").value = "";
+                    break;
+                  case "triangle":
+                    document.getElementById("tri-base").value = "";
+                    document.getElementById("tri-height").value = "";
+                    document.getElementById("tri-thickness").value = "";
+                    break;
+                }
+                document.getElementById("volume-results").innerHTML = "";
+              }
+
+              document.addEventListener("DOMContentLoaded", function () {
+                const volumeInputs = [
+                  "rect-length",
+                  "rect-width",
+                  "rect-thickness",
+                  "circle-diameter",
+                  "circle-thickness",
+                  "tri-base",
+                  "tri-height",
+                  "tri-thickness",
+                ];
+
+                volumeInputs.forEach((id) => {
+                  const input = document.getElementById(id);
+                  if (input) {
+                    input.addEventListener("keypress", function (e) {
+                      if (e.key === "Enter") {
+                        const activeTab = document
+                          .querySelector(".volume-tab-content.active")
+                          .id.replace("volume-", "");
+                        calculateVolume(activeTab);
+                      }
+                    });
+                  }
+                });
+              });
+            </script>
+          </body>
+        </html>
+
+        <!DOCTYPE html>
+        <html lang="en">
+          <head>
+            <meta charset="UTF-8" />
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1.0"
+            />
+            <title>Area Calculator</title>
+            <style>
+              .area-calculator {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                  Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+                background: white;
+                border: 1px solid #e2e8f0;
+                border-radius: 12px;
+                overflow: hidden;
+                margin-bottom: 20px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+              }
+
+              .area-header {
+                background: #10b981;
+                color: white;
+                padding: 20px;
+                text-align: center;
+              }
+
+              .area-subtitle {
+                font-size: 11px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-bottom: 6px;
+                opacity: 0.9;
+              }
+
+              .area-title {
+                font-size: 24px;
+                font-weight: 700;
+                margin: 0;
+                color: white;
+              }
+
+              .area-tab-buttons {
+                display: flex;
+                background: #f8fafc;
+                border-bottom: 1px solid #e2e8f0;
+              }
+
+              .area-tab-button {
+                border-radius: 0px !important;
+                flex: 1;
+                padding: 16px 10px;
+                border: none;
+                background: transparent;
+                color: #64748b;
+                font-weight: 600;
+                font-size: 12px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                position: relative;
+                margin: 0;
+              }
+
+              .area-tab-button:hover {
+                color: #10b981;
+                background: #f1f5f9;
+              }
+
+              .area-tab-button.active {
+                color: #10b981;
+                background: white;
+                font-weight: 700;
+              }
+
+              .area-tab-button.active::after {
+                content: "";
+                position: absolute;
+                bottom: -1px;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: #10b981;
+              }
+
+              .area-tab-content {
+                display: none;
+                padding: 20px;
+              }
+
+              .area-tab-content.active {
+                display: block;
+              }
+
+              .area-shape-diagram {
+                text-align: center;
+                margin-bottom: 20px;
+                padding: 16px;
+                background: #f8fafc;
+                border-radius: 8px;
+                border: 1px solid #e2e8f0;
+              }
+
+              .area-shape-diagram img {
+                max-width: 100%;
+                height: 160px;
+                object-fit: contain;
+              }
+
+              .area-input-group {
+                margin-bottom: 20px;
+              }
+
+              .area-input-group label {
+                display: block;
+                font-weight: 600;
+                color: #334155;
+                font-size: 14px;
+                margin-bottom: 8px;
+              }
+
+              .area-input-wrapper {
+                display: flex;
+                align-items: center;
+                background: white;
+                border: 1px solid #cbd5e1;
+                border-radius: 8px;
+                padding: 0 14px;
+                transition: border-color 0.2s ease;
+              }
+
+              .area-input-wrapper:focus-within {
+                border-color: #10b981;
+              }
+
+              .area-input-wrapper input {
+                flex: 1;
+                padding: 14px 0;
+                border: none;
+                background: transparent;
+                font-size: 15px;
+                color: #0f172a;
+                outline: none;
+                width: 100%;
+              }
+
+              .area-input-wrapper input::placeholder {
+                color: #94a3b8;
+              }
+
+              .area-input-wrapper span {
+                color: #64748b;
+                font-weight: 500;
+                font-size: 14px;
+                min-width: 30px;
+                text-align: right;
+                margin-left: 8px;
+              }
+
+              .area-button-group {
+                display: flex;
+                gap: 12px;
+                margin: 24px 0;
+              }
+
+              .area-btn {
+                padding: 16px 28px;
+                border: none;
+                border-radius: 8px;
+                font-weight: 700;
+                font-size: 13px;
+                cursor: pointer;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                transition: all 0.2s ease;
+              }
+
+              .area-btn-reset {
+                background: #f1f5f9;
+                color: #475569;
+                flex: 1;
+              }
+
+              .area-btn-reset:hover {
+                color: white;
+                background: #10b981;
+              }
+
+              .area-btn-calculate {
+                background: #10b981;
+                color: white;
+                flex: 2;
+              }
+
+              .area-btn-calculate:hover {
+                background: #0da271;
+              }
+
+              .area-results-section {
+                background: #f8fafc;
+                padding: 20px;
+              }
+
+              .area-results-title {
+                color: #334155;
+                font-size: 16px;
+                font-weight: 700;
+                margin-bottom: 16px;
+                padding-bottom: 12px;
+                border-bottom: 2px solid #e2e8f0;
+              }
+
+              .area-results-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+              }
+
+              .area-result-item {
+                background: white;
+                padding: 16px 18px;
+                border-radius: 8px;
+                border: 1px solid #e2e8f0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              }
+
+              .area-result-label {
+                font-weight: 600;
+                color: #334155;
+                font-size: 14px;
+                flex: 1;
+              }
+
+              .area-result-value {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+              }
+
+              .area-result-number {
+                background: #f1f5f9;
+                padding: 8px 16px;
+                border-radius: 6px;
+                font-weight: 700;
+                min-width: 80px;
+                text-align: center;
+                font-size: 15px;
+                color: #10b981;
+              }
+
+              .area-result-unit {
+                color: #64748b;
+                font-weight: 600;
+                font-size: 13px;
+                min-width: 60px;
+              }
+
+              .area-note {
+                font-size: 12px;
+                color: #64748b;
+                margin-top: 16px;
+                padding-top: 12px;
+                font-style: italic;
+              }
+
+              /* ICON + LABEL ALIGNMENT */
+              .area-tab-button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+              }
+
+              /* SVG ICON */
+              .area-tab-icon {
+                width: 18px;
+                height: 18px;
+                display: block;
+                flex-shrink: 0;
+              }
+
+              .area-tab-icon .shape {
+                stroke: currentColor;
+                stroke-width: 2;
+                fill: none;
+              }
+
+              /* ACTIVE ICON COLOR */
+              .area-tab-button.active .area-tab-icon .shape {
+                stroke: #10b981;
+              }
+
+              /* LABEL FIX */
+              .area-tab-label {
+                line-height: 1;
+                display: block;
+              }
+
+              /* Fix for double border issue */
+              .area-input-wrapper input:focus {
+                outline: none;
+                box-shadow: none;
+              }
+
+              .area-input-wrapper:focus-within {
+                outline: none;
+                border-color: #10b981;
+              }
+
+              /* Remove WordPress default focus */
+              .area-input-wrapper input:focus-visible {
+                outline: none !important;
+                box-shadow: none !important;
+              }
+
+              @media (max-width: 768px) {
+                .area-button-group {
+                  flex-direction: column;
+                }
+
+                .area-btn {
+                  width: 100%;
+                  padding: 14px 20px;
+                }
+
+                .area-shape-diagram img {
+                  height: 140px;
+                }
+
+                .area-tab-button {
+                  padding: 14px 8px;
+                  font-size: 11px;
+                }
+              }
+            </style>
+          </head>
+          <body>
+            <div class="area-calculator">
+              <div class="area-header">
+                <div class="area-subtitle">QUANTITY ESTIMATOR</div>
+                <h2 class="area-title">Area Calculator</h2>
+              </div>
+
+              <div class="area-tab-buttons">
+                <button
+                  class="area-tab-button active"
+                  onclick="showAreaTab('rect')"
+                >
+                  <svg class="area-tab-icon" viewBox="0 0 24 24">
+                    <rect
+                      class="shape"
+                      x="4"
+                      y="4"
+                      width="16"
+                      height="16"
+                      rx="2"
+                    />
+                  </svg>
+                  <span class="area-tab-label">Rectangle</span>
+                </button>
+
+                <button class="area-tab-button" onclick="showAreaTab('circle')">
+                  <svg class="area-tab-icon" viewBox="0 0 24 24">
+                    <circle class="shape" cx="12" cy="12" r="9" />
+                  </svg>
+                  <span class="area-tab-label">Circle</span>
+                </button>
+
+                <button
+                  class="area-tab-button"
+                  onclick="showAreaTab('triangle')"
+                >
+                  <svg class="area-tab-icon" viewBox="0 0 24 24">
+                    <polygon class="shape" points="12,4 20,20 4,20" />
+                  </svg>
+                  <span class="area-tab-label">Triangle</span>
+                </button>
+              </div>
+
+              <!-- Rectangle Tab -->
+              <div id="area-rect" class="area-tab-content active">
+                <div class="area-shape-diagram">
+                  <img
+                    src="https://www.skippens.com.au/wp-content/uploads/2025/12/rectangle3.png"
+                    alt="Rectangle Area Diagram"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div class="area-input-group">
+                  <label>Length</label>
+                  <div class="area-input-wrapper">
+                    <input
+                      type="number"
+                      id="area-rect-length"
+                      placeholder="Enter length"
+                      step="0.01"
+                      min="0"
+                    />
+                    <span>m</span>
+                  </div>
+                </div>
+
+                <div class="area-input-group">
+                  <label>Width</label>
+                  <div class="area-input-wrapper">
+                    <input
+                      type="number"
+                      id="area-rect-width"
+                      placeholder="Enter width"
+                      step="0.01"
+                      min="0"
+                    />
+                    <span>m</span>
+                  </div>
+                </div>
+
+                <div class="area-button-group">
+                  <button
+                    class="area-btn area-btn-calculate"
+                    onclick="calculateArea('rect')"
+                  >
+                    Calculate
+                  </button>
+                  <button
+                    class="area-btn area-btn-reset"
+                    onclick="resetArea('rect')"
+                  >
+                    Reset
+                  </button>
+                </div>
+              </div>
+
+              <!-- Circle Tab -->
+              <div id="area-circle" class="area-tab-content">
+                <div class="area-shape-diagram">
+                  <img
+                    src="https://www.skippens.com.au/wp-content/uploads/2025/12/circle2.png"
+                    alt="Circle Area Diagram"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div class="area-input-group">
+                  <label>Diameter</label>
+                  <div class="area-input-wrapper">
+                    <input
+                      type="number"
+                      id="area-circle-diameter"
+                      placeholder="Enter diameter"
+                      step="0.01"
+                      min="0"
+                    />
+                    <span>m</span>
+                  </div>
+                </div>
+
+                <div class="area-button-group">
+                  <button
+                    class="area-btn area-btn-calculate"
+                    onclick="calculateArea('circle')"
+                  >
+                    Calculate
+                  </button>
+                  <button
+                    class="area-btn area-btn-reset"
+                    onclick="resetArea('circle')"
+                  >
+                    Reset
+                  </button>
+                </div>
+              </div>
+
+              <!-- Triangle Tab -->
+              <div id="area-triangle" class="area-tab-content">
+                <div class="area-shape-diagram">
+                  <img
+                    src="https://www.skippens.com.au/wp-content/uploads/2025/12/triangle3.png"
+                    alt="Triangle Area Diagram"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div class="area-input-group">
+                  <label>Base</label>
+                  <div class="area-input-wrapper">
+                    <input
+                      type="number"
+                      id="area-tri-base"
+                      placeholder="Enter base"
+                      step="0.01"
+                      min="0"
+                    />
+                    <span>m</span>
+                  </div>
+                </div>
+
+                <div class="area-input-group">
+                  <label>Height</label>
+                  <div class="area-input-wrapper">
+                    <input
+                      type="number"
+                      id="area-tri-height"
+                      placeholder="Enter height"
+                      step="0.01"
+                      min="0"
+                    />
+                    <span>m</span>
+                  </div>
+                </div>
+
+                <div class="area-button-group">
+                  <button
+                    class="area-btn area-btn-calculate"
+                    onclick="calculateArea('triangle')"
+                  >
+                    Calculate
+                  </button>
+                  <button
+                    class="area-btn area-btn-reset"
+                    onclick="resetArea('triangle')"
+                  >
+                    Reset
+                  </button>
+                </div>
+              </div>
+
+              <!-- Results Section -->
+              <div class="area-results-section">
+                <h3 class="area-results-title">Turf / Pavers</h3>
+                <div id="area-results" class="area-results-grid"></div>
+                <div class="area-note">
+                  * Based on standard turf rolls (1m² each)
+                </div>
+              </div>
+            </div>
+
+            <script>
+              function showAreaTab(tabName) {
+                document
+                  .querySelectorAll(".area-tab-content")
+                  .forEach((tab) => {
+                    tab.classList.remove("active");
+                  });
+                document.querySelectorAll(".area-tab-button").forEach((btn) => {
+                  btn.classList.remove("active");
+                });
+                document
+                  .getElementById(`area-${tabName}`)
+                  .classList.add("active");
+                event.target
+                  .closest(".area-tab-button")
+                  .classList.add("active");
+              }
+
+              function calculateArea(shape) {
+                let area = 0;
+
+                switch (shape) {
+                  case "rect":
+                    const length = parseFloat(
+                      document.getElementById("area-rect-length").value
+                    );
+                    const width = parseFloat(
+                      document.getElementById("area-rect-width").value
+                    );
+
+                    if (
+                      isNaN(length) ||
+                      isNaN(width) ||
+                      length <= 0 ||
+                      width <= 0
+                    ) {
+                      alert(
+                        "Please enter valid positive values for both length and width"
+                      );
+                      return;
+                    }
+
+                    area = length * width;
+                    break;
+
+                  case "circle":
+                    const diameter = parseFloat(
+                      document.getElementById("area-circle-diameter").value
+                    );
+
+                    if (isNaN(diameter) || diameter <= 0) {
+                      alert("Please enter a valid positive diameter");
+                      return;
+                    }
+
+                    const radius = diameter / 2;
+                    area = Math.PI * radius * radius;
+                    break;
+
+                  case "triangle":
+                    const base = parseFloat(
+                      document.getElementById("area-tri-base").value
+                    );
+                    const height = parseFloat(
+                      document.getElementById("area-tri-height").value
+                    );
+
+                    if (
+                      isNaN(base) ||
+                      isNaN(height) ||
+                      base <= 0 ||
+                      height <= 0
+                    ) {
+                      alert(
+                        "Please enter valid positive values for both base and height"
+                      );
+                      return;
+                    }
+
+                    area = (base * height) / 2;
+                    break;
+                }
+
+                displayAreaResults(area);
+              }
+
+              function displayAreaResults(area) {
+                const container = document.getElementById("area-results");
+                const roundedArea = Math.round(area);
+
+                container.innerHTML = `
+                <div class="area-result-item">
+                    <div class="area-result-label">Actual Area</div>
+                    <div class="area-result-value">
+                        <div class="area-result-number">${roundedArea}</div>
+                        <div class="area-result-unit">m²</div>
+                    </div>
+                </div>
+                <div class="area-result-item">
+                    <div class="area-result-label">Recommended Turf</div>
+                    <div class="area-result-value">
+                        <div class="area-result-number">${roundedArea}</div>
+                        <div class="area-result-unit">Rolls</div>
+                    </div>
+                </div>
+            `;
+              }
+
+              function resetArea(shape) {
+                switch (shape) {
+                  case "rect":
+                    document.getElementById("area-rect-length").value = "";
+                    document.getElementById("area-rect-width").value = "";
+                    break;
+                  case "circle":
+                    document.getElementById("area-circle-diameter").value = "";
+                    break;
+                  case "triangle":
+                    document.getElementById("area-tri-base").value = "";
+                    document.getElementById("area-tri-height").value = "";
+                    break;
+                }
+                document.getElementById("area-results").innerHTML = "";
+              }
+
+              document.addEventListener("DOMContentLoaded", function () {
+                const areaInputs = [
+                  "area-rect-length",
+                  "area-rect-width",
+                  "area-circle-diameter",
+                  "area-tri-base",
+                  "area-tri-height",
+                ];
+
+                areaInputs.forEach((id) => {
+                  const input = document.getElementById(id);
+                  if (input) {
+                    input.addEventListener("keypress", function (e) {
+                      if (e.key === "Enter") {
+                        const activeTab = document
+                          .querySelector(".area-tab-content.active")
+                          .id.replace("area-", "");
+                        calculateArea(activeTab);
+                      }
+                    });
+                  }
+                });
+              });
+            </script>
+          </body>
+        </html>
+      </div>
+
+      <!-- Disclaimer Section -->
+      <div class="mt-12">
+        <div
+          class="bg-yellow-50 border-l-4 border-yellow-500 rounded-lg p-6 mb-8"
+        >
+          <div class="flex items-start">
+            <svg
+              class="w-6 h-6 text-yellow-600 mr-3 flex-shrink-0 mt-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+              />
+            </svg>
+            <div>
+              <h3 class="text-lg font-bold text-yellow-900 mb-2">
+                Important Calculator Disclaimer
+              </h3>
+              <p class="text-yellow-800">
+                All quantities are estimates only and are based on the
+                information provided. Results are rounded up. Please ensure
+                measurements are entered in the correct units.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- General Information -->
+          <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+            <div class="flex items-center space-x-2 mb-4">
+              <svg
+                class="w-5 h-5 text-yellow-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <h3 class="text-lg font-bold text-gray-900">
+                General Information
+              </h3>
+            </div>
+            <ul class="space-y-3 text-sm text-gray-700">
+              <li class="flex items-start">
+                <span class="text-yellow-600 mr-2 flex-shrink-0">►</span>
+                <span
+                  >All quantities are estimates only and are based on the
+                  information provided</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="text-yellow-600 mr-2 flex-shrink-0">►</span>
+                <span
+                  >Please ensure measurements are entered in the correct
+                  units</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="text-yellow-600 mr-2 flex-shrink-0">►</span>
+                <span>Results are rounded up for practical application</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-yellow-600 mr-2 flex-shrink-0">►</span>
+                <span>The estimator is not intended for very small areas</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-yellow-600 mr-2 flex-shrink-0">►</span>
+                <span>Values under 0.01 may be inaccurate due to rounding</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Bulk Items -->
+          <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+            <div class="flex items-center space-x-2 mb-4">
+              <svg
+                class="w-5 h-5 text-yellow-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                />
+              </svg>
+              <h3 class="text-lg font-bold text-gray-900">Bulk Items</h3>
+            </div>
+            <ul class="space-y-3 text-sm text-gray-700">
+              <li class="flex items-start">
+                <span class="text-yellow-600 mr-2 flex-shrink-0">►</span>
+                <span
+                  >Product densities can vary, so exact quantities cannot be
+                  guaranteed</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="text-yellow-600 mr-2 flex-shrink-0">►</span>
+                <span
+                  >Consider whether it is better to have slightly more or less
+                  material</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="text-yellow-600 mr-2 flex-shrink-0">►</span>
+                <span
+                  >Excess material may need to be reused or disposed of
+                  responsibly</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="text-yellow-600 mr-2 flex-shrink-0">►</span>
+                <span>Shortages may require an additional delivery fee</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-yellow-600 mr-2 flex-shrink-0">►</span>
+                <span
+                  >Always allow for compaction and settling of materials</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Turf & Pavers -->
+          <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+            <div class="flex items-center space-x-2 mb-4">
+              <svg
+                class="w-5 h-5 text-yellow-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                />
+              </svg>
+              <h3 class="text-lg font-bold text-gray-900">Turf & Pavers</h3>
+            </div>
+
+            <h4 class="font-semibold text-gray-900 mb-2 text-sm">
+              Turf Installation:
+            </h4>
+            <ul class="space-y-2 text-sm text-gray-700 mb-4">
+              <li class="flex items-start">
+                <span class="text-yellow-600 mr-2 flex-shrink-0">►</span>
+                <span>Allow at least 5% extra for cutting and wastage</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-yellow-600 mr-2 flex-shrink-0">►</span>
+                <span>Quantities are rounded up to full rolls</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-yellow-600 mr-2 flex-shrink-0">►</span>
+                <span
+                  >Requirements may vary based on installation technique</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="text-yellow-600 mr-2 flex-shrink-0">►</span>
+                <span>Consider site slope and irregular shapes</span>
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-gray-900 mb-2 text-sm">
+              Pavers Installation:
+            </h4>
+            <ul class="space-y-2 text-sm text-gray-700">
+              <li class="flex items-start">
+                <span class="text-yellow-600 mr-2 flex-shrink-0">►</span>
+                <span
+                  >Cutting may be required, increasing material wastage</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="text-yellow-600 mr-2 flex-shrink-0">►</span>
+                <span>Use area dimensions that match paver size multiples</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-yellow-600 mr-2 flex-shrink-0">►</span>
+                <span
+                  >Include allowance for edge restraints and base
+                  materials</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="text-yellow-600 mr-2 flex-shrink-0">►</span>
+                <span>Complex patterns require additional material</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Final Disclaimer -->
+        <div class="mt-8 text-center">
+          <p class="text-sm text-gray-600 italic">
+            <strong>Disclaimer:</strong> This calculator is intended as a guide
+            only. Always consult with professionals for exact project
+            requirements. Final quantities may vary based on site conditions,
+            material variations, and installation methods.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+          <div>
+            <div class="mb-6">
+              <img
+                src="logo.png"
+                alt="Skippens Logo"
+                class="h-16 w-auto"
+              />
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Quality landscape and building supplies for NSW Eastern Suburbs.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4 text-lg">Quick Links</h4>
+            <ul class="space-y-2.5 text-gray-400 text-sm">
+              <li>
+                <a href="index.html" class="hover:text-white transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Products</a
+                >
+              </li>
+              <li>
+                <a
+                  href="quantity-estimator.html"
+                  class="hover:text-white transition-colors"
+                  >Quantity Estimator</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Our History</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4 text-lg">Products</h4>
+            <ul class="space-y-2.5 text-gray-400 text-sm">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Sand & Aggregates</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Mulch & Soils</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Building Materials</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Turf & Lawn Care</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4 text-lg">Contact</h4>
+            <ul class="space-y-3 text-gray-400 text-sm">
+              <li class="flex items-start space-x-2">
+                <svg
+                  class="w-5 h-5 flex-shrink-0 mt-0.5 text-green-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
+                </svg>
+                <a
+                  href="tel:0296661020"
+                  class="hover:text-white transition-colors"
+                  >02 9666 1020</a
+                >
+              </li>
+              <li class="flex items-start space-x-2">
+                <svg
+                  class="w-5 h-5 flex-shrink-0 mt-0.5 text-green-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+                <span>NSW Eastern Suburbs</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm"
+        >
+          <p>
+            &copy; 2026 Skippens Landscape & Building Supplies. All rights
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
